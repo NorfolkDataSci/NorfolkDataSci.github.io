@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>GitHub API Changes | GitHub Developer Guide</title>
+  
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  
+  <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/assets/javascripts/application.js" type="text/javascript"></script>
+  
+</head>
+
+
+<body class="blog">
+  
+
+<div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="/">GitHub:Developer</a>
+      <ul class="nav">
+        
+        <li><a href="/v3/" class="nav-api">API</a></li>
+        <li><a href="/program/" class="nav-developers">Developers</a></li>
+        <li><a href="/changes/" class="nav-blog">Blog</a></li>
+        <li><a href="https://github.com/contact">Support</a></li>
+        <li id="search-container">
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <div class="cancel-search"></div>
+          <ul id="search-results">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+
+  <div id="wrapper">
+    <div class="content">
+      <div class="change" id="/changes/2013-05-06-create-update-delete-individual-files/">
+  <h2 class="title">
+<a id="--create-update-and-delete-individual-files" class="anchor" href="#--create-update-and-delete-individual-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-05-06-create-update-delete-individual-files/">Create, update, and delete individual files</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    May 6, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/ymendel.png" alt="Avatar for ymendel" data-proofer-ignore>
+      <a href="https://github.com/ymendel" data-proofer-ignore>ymendel</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We're following in the footsteps of GitHub.com's ability to <a href="https://github.com/blog/143-inline-file-editing">edit</a> and
+<a href="https://github.com/blog/1327-creating-files-on-github">create</a> files in your web browser. Starting today, the
+<a href="/v3/repos/contents/">Repository Contents API</a> will let you easily <a href="/v3/repos/contents/#create-a-file">create</a>, <a href="/v3/repos/contents/#update-a-file">update</a>, and even
+<a href="/v3/repos/contents/#delete-a-file">delete</a> individual files.</p>
+
+<p>Happy editing!</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-05-06-repository-stats/">
+  <h2 class="title">
+<a id="--repository-statistics" class="anchor" href="#--repository-statistics" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-05-06-repository-stats/">Repository Statistics</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    May 6, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/Caged.png" alt="Avatar for Caged" data-proofer-ignore>
+      <a href="https://github.com/Caged" data-proofer-ignore>Caged</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>Today we're happy to open our <a href="/v3/repos/statistics">Repository Statistics API</a> to everyone.  We're using
+repository statistics to power <a href="https://github.com/github/linguist/graphs">our graphs</a>,
+but we can't wait to see what others can do with this information.</p>
+
+<p>Starting today, these resources are available to you:</p>
+
+<ul>
+<li><strong><a href="/v3/repos/statistics/#contributors">Contributors</a></strong></li>
+<li><strong><a href="/v3/repos/statistics/#commit-activity">Commit Activity</a></strong></li>
+<li><strong><a href="/v3/repos/statistics/#code-frequency">Code Frequency</a></strong></li>
+<li><strong><a href="/v3/repos/statistics/#participation">Participation</a></strong></li>
+<li><strong><a href="/v3/repos/statistics/#punch-card">Punch Card</a></strong></li>
+</ul>
+
+<p>Enjoy!</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-04-30-statuses-for-branches-and-tags/">
+  <h2 class="title">
+<a id="--commit-statuses-now-available-for-branches-and-tags" class="anchor" href="#--commit-statuses-now-available-for-branches-and-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-04-30-statuses-for-branches-and-tags/">Commit Statuses Now Available for Branches and Tags</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    April 30, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/foca.png" alt="Avatar for foca" data-proofer-ignore>
+      <a href="https://github.com/foca" data-proofer-ignore>foca</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>Last week we announced <a href="https://github.com/blog/1484-check-the-status-of-your-branches">support for build statuses in the branches page</a>.
+Now we are extending this to the API. The <a href="http://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref">API endpoint for commit statuses</a>
+has been extended to allow branch and tag names, as well as commit SHAs.</p>
+
+<pre class="command-line">
+curl https://api.github.com/repos/rails/rails/statuses/3-2-stable
+</pre>
+
+<p>Enjoy.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-04-30-improved-submodule-support-in-repository-contents-api/">
+  <h2 class="title">
+<a id="--improved-support-for-submodules-in-the-repository-contents-api" class="anchor" href="#--improved-support-for-submodules-in-the-repository-contents-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-04-30-improved-submodule-support-in-repository-contents-api/">Improved Support for Submodules in the Repository Contents API</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    April 30, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/jasonrudolph.png" alt="Avatar for jasonrudolph" data-proofer-ignore>
+      <a href="https://github.com/jasonrudolph" data-proofer-ignore>jasonrudolph</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>When you view a repository with a submodule on github.com, you get useful links and information for the submodule.</p>
+
+<p><a href="/assets/images/posts/submodule-links.png"><img src="/assets/images/posts/submodule-links.png" alt="Repository Contents with Submodule"></a></p>
+
+<p>Today we're making that data available in the <a href="/v3/repos/contents/#get-contents">Repository Contents API</a>.</p>
+
+<pre class="command-line">
+<span class="command">curl https://api.github.com/repos/jquery/jquery/contents/test/qunit</span>
+
+<span class="output">{</span>
+<span class="output">  "name": "qunit",</span>
+<span class="output">  "path": "test/qunit",</span>
+<span class="output">  "type": "submodule",</span>
+<span class="output"> "submodule_git_url": "git://github.com/jquery/qunit.git",</span>
+<span class="output"> "sha": "6ca3721222109997540bd6d9ccd396902e0ad2f9",</span>
+<span class="output"> "size": 0,</span>
+<span class="output"> "url": "https://api.github.com/repos/jquery/jquery/contents/test/qunit?ref=master",</span>
+<span class="output"> "git_url": "https://api.github.com/repos/jquery/qunit/git/trees/6ca3721222109997540bd6d9ccd396902e0ad2f9",</span>
+<span class="output"> "html_url": "https://github.com/jquery/qunit/tree/6ca3721222109997540bd6d9ccd396902e0ad2f9",</span>
+<span class="output"> "_links": {</span>
+<span class="output">   "self": "https://api.github.com/repos/jquery/jquery/contents/test/qunit?ref=master",</span>
+<span class="output">    "git": "https://api.github.com/repos/jquery/qunit/git/trees/6ca3721222109997540bd6d9ccd396902e0ad2f9",</span>
+<span class="output">    "html": "https://github.com/jquery/qunit/tree/6ca3721222109997540bd6d9ccd396902e0ad2f9"</span>
+<span class="output">  }</span>
+<span class="output">}</span>
+</pre>
+
+<p>If you have any questions or feedback, please drop us a line at
+<a href="mailto:support@github.com?subject=Submodules%20in%20Repository%20Contents%20API">support@github.com</a>.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-04-25-deprecating-merge-commit-sha/">
+  <h2 class="title">
+<a id="--deprecating-a-confusing-attribute-in-the-pull-request-api" class="anchor" href="#--deprecating-a-confusing-attribute-in-the-pull-request-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-04-25-deprecating-merge-commit-sha/">Deprecating a Confusing Attribute in the Pull Request API</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    April 25, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/jasonrudolph.png" alt="Avatar for jasonrudolph" data-proofer-ignore>
+      <a href="https://github.com/jasonrudolph" data-proofer-ignore>jasonrudolph</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>When you get the details for a Pull Request from the API, the
+<a href="/v3/pulls/#get-a-single-pull-request">response</a> provides everything there is to
+know about that Pull Request. In addition to the useful information provided in
+the API response, the JSON also includes the <code>merge_commit_sha</code> attribute. This
+attribute is a frequent source of misunderstanding, and we aim to remove the
+confusion.</p>
+
+<p>To help current API consumers, we've <a href="/v3/pulls/#get-a-single-pull-request">documented the
+attribute</a> for improved understanding.</p>
+
+<p>To protect future API consumers from this confusion, we have
+<a href="/v3/versions/#v3-deprecations">deprecated</a> the <code>merge_commit_sha</code> attribute, and we will
+remove it in the next major version of the API.</p>
+
+<p>As always, if you have any questions or feedback, please drop us a line at
+<a href="mailto:support@github.com?subject=Deprecating%20merge_commit_sha">support@github.com</a>.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-04-24-user-agent-required/">
+  <h2 class="title">
+<a id="--user-agent-now-mandatory" class="anchor" href="#--user-agent-now-mandatory" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-04-24-user-agent-required/">User Agent now mandatory</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    April 24, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>After an almost six week grace period, we're now enforcing the <a href="/v3/#user-agent-required">User Agent
+header</a> for all API requests. Most HTTP libraries (including cURL)
+set this header by default. If you're experiencing an increase in <code>403</code>
+responses, be sure and check your code.</p>
+
+<p>If you have any questions or feedback, please drop us a line at
+<a href="mailto:support@github.com?subject=User%20Agent%20Requirement">support@github.com</a>.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-03-01-new-hookshot-coming/">
+  <h2 class="title">
+<a id="--new-hookshot-changes" class="anchor" href="#--new-hookshot-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-03-01-new-hookshot-coming/">New Hookshot Changes</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    March 1, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We are experimenting with changes to the "Hookshot" backend that powers service
+hooks.  There were some significant networking changes with the new cluster,
+so there are some new IP whitelist rules for hooks:</p>
+
+<ul>
+<li>204.232.175.64/27</li>
+<li>192.30.252.0/22</li>
+</ul>
+
+<p>These are in CIDR notation.  They represent a significant range of GitHub
+addresses, meaning this should be the last IP change for a while.  Once this
+cluster is activated and we shut the other cluster down, we will be removing
+the other entries.</p>
+
+<p>We are currently testing the new backend with all repositories in the GitHub
+organization only, and expect to start testing it with user data next week.</p>
+
+<p>This also means we should be able to start accepting <a href="https://github.com/github/github-services/pulls">GitHub Services pull
+requests</a> very soon :)</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-02-14-sortable-stars/">
+  <h2 class="title">
+<a id="--sortable-stars-in-repository-starring-api" class="anchor" href="#--sortable-stars-in-repository-starring-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-02-14-sortable-stars/">Sortable Stars in Repository Starring API</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    February 14, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>As we <a href="https://github.com/blog/1410-sortable-stars">announced on the GitHub blog</a>, Stars now support sorting. The
+Repository Starring API now supports <a href="/v3/activity/starring/#list-repositories-being-starred">two new parameters</a> when listing
+Stars: <code>sort</code> and <code>direction</code>.</p>
+
+<pre class="command-line">
+<span class="command">curl https://api.github.com/users/defunkt/starred?sort=created&amp;direction=asc</span>
+</pre>
+
+<p>Enjoy.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-02-13-hookshot-load-balancer/">
+  <h2 class="title">
+<a id="--hookshot-load-balancer" class="anchor" href="#--hookshot-load-balancer" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-02-13-hookshot-load-balancer/">Hookshot Load balancer</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    February 13, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We had an issue with the Hookshot load balancer this morning, causing the
+majority of hooks to flow to a single node only.  This lead to massive queue
+times.  While fixing this, we're putting the old Services backend in use.</p>
+
+<p>This means the old IPs are back in use.  Use this <a href="https://help.github.com/articles/what-ip-addresses-does-github-use-that-i-should-whitelist">Help guide</a>
+if you already removed them from your firewall.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-02-13-hookshot-issues/">
+  <h2 class="title">
+<a id="--some-hookshot-issues" class="anchor" href="#--some-hookshot-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-02-13-hookshot-issues/">Some Hookshot Issues</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    February 13, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We turned Hookshot (our new GitHub Services backend) on yesterday.  Things have
+been pretty smooth, with one issue:  Hooks going to other EC2 nodes come from
+the private IP addresses of our nodes in the 10.<em>.</em>.* range.</p>
+
+<p>If your web hook servers are on EC2 and are missing hooks from GitHub due to
+an IP restriction, we recommend the following:</p>
+
+<ol>
+<li>Remove the IP white list.</li>
+<li>Fall back to HTTPS and Basic Auth to restrict pushes to authorized senders only.</li>
+</ol>
+
+<p>We're currently working on solving this problem.  Hit up <a href="mailto:support@github.com">support@github.com</a>
+if you have any questions.</p>
+
+<p></p>
+</div>
+
+<div class="paginate-container">
+  
+
+<div class="pagination">
+  
+  <a href="/changes/11" class="previous_page">Previous</a>
+  
+
+  
+    
+    
+    
+    
+      
+      
+      
+    
+
+    
+      <span class="disabled">…</span>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/10" class="">10</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/11" class="">11</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/12" class="current">12</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/13" class="">13</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/14" class="">14</a>
+    
+
+    
+  
+
+  
+    <a href="/changes/13" class="next_page">Next</a>
+  
+</div>
+
+<p></p>
+</div>
+    </div>
+
+    <div class="sidebar-shell">
+        <h2>Recent Posts</h2>
+<ul class="headlines sidebar-module">
+
+  <li><a href="/changes/2016-07-12-ending-multiple-assignees-preview-period/">Multiple Assignees API is now official<br /><span class="date">July 12, 2016</span></a></li>
+
+  <li><a href="/changes/2016-07-06-github-pages-preiew-api/">Introducing the GitHub Pages preview API<br /><span class="date">July 6, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-27-protected-branches-api-update/">Update to Protected Branches API Preview<br /><span class="date">June 27, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-22-issue-locking-api-is-now-official/">Issue locking and unlocking APIs are now official<br /><span class="date">June 22, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-14-repository-invitations/">API changes for Repository Invitations<br /><span class="date">June 14, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-07-reactions-api-update/">Reactions API Preview now includes user information<br /><span class="date">June 7, 2016</span></a></li>
+
+  <li><a href="/changes/2016-5-27-multiple-assignees/">API changes for Multiple Issue Assignees<br /><span class="date">May 27, 2016</span></a></li>
+
+  <li><a href="/changes/2016-05-23-timeline-preview-api/">Preview the Timeline API<br /><span class="date">May 23, 2016</span></a></li>
+
+</ul>
+
+
+        <div class="sidebar-module notice"><a class="rss-subscribe" href="/changes.atom">Subscribe to the RSS feed</a></div>
+    </div>
+  </div>
+
+    <div id="footer" >
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2016 GitHub, Inc.</a></li>
+        <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
+        <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
+        <li><a href="https://help.github.com/security/">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+      </ul>
+
+      <span class="footer-cell">
+        <a href="https://github.com" class="mega-octicon octicon-mark-github"></a>
+      </span>
+
+      <ul class="footer-cell">
+        <li><a href="https://status.github.com/">Status</a></li>
+        <li><a href="http://training.github.com/">Training</a></li>
+        <li><a href="http://shop.github.com/">Shop</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+        <li><a href="https://github.com/about">About</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#footer -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-37', 'github.com');
+    ga('send', 'pageview');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>GitHub API Changes | GitHub Developer Guide</title>
+  
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  
+  <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/assets/javascripts/application.js" type="text/javascript"></script>
+  
+</head>
+
+
+<body class="blog">
+  
+
+<div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="/">GitHub:Developer</a>
+      <ul class="nav">
+        
+        <li><a href="/v3/" class="nav-api">API</a></li>
+        <li><a href="/program/" class="nav-developers">Developers</a></li>
+        <li><a href="/changes/" class="nav-blog">Blog</a></li>
+        <li><a href="https://github.com/contact">Support</a></li>
+        <li id="search-container">
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <div class="cancel-search"></div>
+          <ul id="search-results">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+
+  <div id="wrapper">
+    <div class="content">
+      <div class="change" id="/changes/2013-02-05-changes-to-services/">
+  <h2 class="title">
+<a id="--upcoming-changes-to-github-services" class="anchor" href="#--upcoming-changes-to-github-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-02-05-changes-to-services/">Upcoming Changes to GitHub Services</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    February 5, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We are finishing up a new GitHub Services backend, dubbed "Hookshot", to
+increase the speed and reliability of our delivered payloads.  We are doing
+what we can to make this a seamless transition for everyone.  However, there
+are a few notable changes.</p>
+
+<ul>
+<li><p>There is a new <a href="http://developer.github.com/v3/meta/">Meta API endpoint</a>
+listing the current public IPs that hooks originate from.</p></li>
+<li><p>We're removing the AMQP service from GitHub. It hasn't worked in quite some
+time, and the code it uses doesn't work in our background workers.</p></li>
+<li><p>We're also instituting a new guideline to improve the reliability and
+maintainability of services in the future. As of today, all new services must
+accept an unmodified payload over HTTP. Any service that does not will be
+rejected. To see an example of an acceptable service, check out <a href="https://github.com/github/github-services/blob/fbc0db24b8b7685b2058462181d928a5f2a0a448/lib/services/codeclimate.rb">Code Climate</a>.
+Notice their service simply accepts HTTP POST from GitHub unmodified. For an
+example of a service that won't be accepted after today, check out <a href="https://github.com/github/github-services/blob/fbc0db24b8b7685b2058462181d928a5f2a0a448/lib/services/campfire.rb">Campfire</a>. It
+uses other Ruby gems and contains custom logic to transform the GitHub payload
+to Campfire messages.  Existing hooks will keep working (don't worry 37signals, we
+<img class="emoji" title=":heart:" alt=":heart:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/2764.png" height="20" width="20" align="absmiddle"> Campfire).</p></li>
+</ul>
+
+<p>We're making these changes because we want to focus on the reliability of the
+core Services backend for everyone.  Maintaining custom logic and libraries for
+over 100 services is taking too much of this focus away.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-01-31-user-agent-will-soon-be-mandatory/">
+  <h2 class="title">
+<a id="--user-agent-mandatory-from-march-4th-2013" class="anchor" href="#--user-agent-mandatory-from-march-4th-2013" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-01-31-user-agent-will-soon-be-mandatory/">User Agent mandatory from March 4th 2013</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    January 31, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/agh.png" alt="Avatar for agh" data-proofer-ignore>
+      <a href="https://github.com/agh" data-proofer-ignore>agh</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>Following on from our <a href="http://developer.github.com/changes/2012-10-14-rate-limit-changes/">previous post</a>
+about requiring requests to include a valid <a href="http://en.wikipedia.org/wiki/User_agent">User Agent header</a>
+we will soon be changing our API servers to return HTTP 403
+to any clients not providing a valid User Agent header.</p>
+
+<p>We will be making this change on Monday, March 4th 2013.</p>
+
+<p>Setting this helps us identify requests from you, and get in touch with people who are using
+the API in a way which causes disruption to GitHub. Most HTTP libraries and tools like cURL
+already provide a valid header for you, and allow you to customize it, so this will not require
+many of our users to make any changes whatsoever.</p>
+
+<p>If you have any questions or feedback, please drop us a line at
+<a href="mailto:support@github.com?subject=User%20Agent%20Requirement">support@github.com</a>.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2013-01-08-new-user-scopes/">
+  <h2 class="title">
+<a id="--new-user-scopes" class="anchor" href="#--new-user-scopes" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2013-01-08-new-user-scopes/">New User scopes</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    January 8, 2013
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We've added a <a href="http://developer.github.com/v3/oauth/#scopes">few new user scopes</a> for 3rd party applications that want very
+specific user functionality.  The <code>user:email</code> scope gives apps read-only access
+to a user's private email addresses.  The <code>user:follow</code> scope lets a user
+follow and unfollow other users.</p>
+
+<p>This should help keep applications from requiring the <code>user</code> scope, which
+can be potentially dangerous.</p>
+
+<p>We also added a read-only endpoint to get a user's public SSH keys.</p>
+
+<pre><code>GET https://api.github.com/users/technoweenie/keys
+</code></pre>
+</div>
+
+<div class="change" id="/changes/2012-12-10-Diff-and-patch-media-types/">
+  <h2 class="title">
+<a id="--diff-and-patch-media-types" class="anchor" href="#--diff-and-patch-media-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-12-10-Diff-and-patch-media-types/">Diff and patch media types</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    December 10, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+  <p>Starting today, you can get <code>.diff</code> and <code>.patch</code> content directly from the API for the following resources:</p>
+
+<ul>
+<li><a href="/v3/repos/commits/#get-a-single-commit">Commits</a></li>
+<li><a href="/v3/repos/commits/#compare-two-commits">Commit comparisons</a></li>
+<li><a href="/v3/pulls/#get-a-single-pull-request">Pull request</a></li>
+</ul>
+
+<p>Simply use the same resource URL and send either <code>application/vnd.github.diff</code> or <code>application/vnd.github.patch</code> in the <code>Accept</code> header:</p>
+
+<pre class="command-line">
+<span class="command">curl -H "Accept: application/vnd.github.diff" $ https://api.github.com/repos/pengwynn/dotfiles/commits/aee60a4cd56fb4c6a50e60f17096fc40c0d4d72c</span>
+
+<span class="output">diff --git a/tmux/tmux.conf.symlink b/tmux/tmux.conf.symlink</span>
+<span class="output">index 1f599cb..abaf625 100755</span>
+<span class="output">--- a/tmux/tmux.conf.symlink</span>
+<span class="output">+++ b/tmux/tmux.conf.symlink</span>
+<span class="output">@@ -111,6 +111,7 @@ set-option -g base-index 1</span>
+<span class="output"> ## enable mouse</span>
+<span class="output"> set-option -g mouse-select-pane on</span>
+<span class="output"> set-option -g mouse-select-window on</span>
+<span class="output">+set-option -g mouse-resize-pane on</span>
+<span class="output"> set-window-option -g mode-keys vi</span>
+<span class="output"> set-window-option -g mode-mouse on</span>
+<span class="output"> # set-window-option -g monitor-activity off</span>
+</pre>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-12-09-organization-repositories-results-now-paginate/">
+  <h2 class="title">
+<a id="--pagination-for-organization-repository-lists-now-paginates-properly" class="anchor" href="#--pagination-for-organization-repository-lists-now-paginates-properly" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-12-09-organization-repositories-results-now-paginate/">Pagination for Organization Repository lists now paginates properly</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    December 9, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/rick.png" alt="Avatar for rick" data-proofer-ignore>
+      <a href="https://github.com/rick" data-proofer-ignore>rick</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p><img src="https://github-images.s3.amazonaws.com/skitch/seger-turn-the-page-20121209-154956.png" alt="seger-is-so-dreamy"></p>
+
+<p>Improvements continue to the Organizations Repository listing endpoint.
+Today we're improving pagination so that it works as documented.  Now
+you can expect <code>Link</code> headers to navigate through the results space,
+regardless of what you send in the <code>type</code> parameter.</p>
+
+<p>The docs for Organization Repositories queries are still here:</p>
+
+<ul>
+<li><a href="/v3/repos/#list-organization-repositories">Organization Repositories</a></li>
+</ul>
+
+<p><strong>EDIT:</strong> <code>Link</code> headers are our preferred navigation technique.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-12-08-finding-source-and-fork-repos-for-organizations/">
+  <h2 class="title">
+<a id="--finding-sources-and-fork-repositories-for-organizations" class="anchor" href="#--finding-sources-and-fork-repositories-for-organizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-12-08-finding-source-and-fork-repos-for-organizations/">Finding sources and fork repositories for organizations</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    December 8, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/rick.png" alt="Avatar for rick" data-proofer-ignore>
+      <a href="https://github.com/rick" data-proofer-ignore>rick</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We've made a couple of changes today to the Organization repositories
+listing to bring it a bit closer to the functionality of the GitHub.com
+Organization repositories tab.  We now let you retrieve repositories
+which are forks of another repository, as well as those repositories which
+are sources (not forks).</p>
+
+<pre class="command-line">
+<span class="comment"># Grab all fork Repositories for an Organization</span>
+<span class="command">curl "https://api.github.com/orgs/:org/repos?type=forks"</span>
+
+<span class="comment"># Grab all source Repositories for an Organization</span>
+<span class="command">curl "https://api.github.com/orgs/:org/repos?type=sources"</span>
+</pre>
+
+<p>Check out the docs for sorting and filtering options:</p>
+
+<ul>
+<li><a href="/v3/repos/#list-organization-repositories">Organization Repositories</a></li>
+</ul>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-12-06-create-authorization-for-app/">
+  <h2 class="title">
+<a id="--create-an-oauth-authorization-for-an-app" class="anchor" href="#--create-an-oauth-authorization-for-an-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-12-06-create-authorization-for-app/">Create an OAuth authorization for an app</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    December 6, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>The <a href="/v3/oauth_authorizations/#oauth-authorizations-api">Authorizations API</a> is an easy way to create an OAuth
+authorization using Basic Auth. Just POST your desired scopes and optional
+note and you get a token back:</p>
+
+<pre class="command-line">
+<span class="command">curl -u pengwynn -d '{"scopes": ["user", "gist"]}' \</span>
+<span class="command">     https://api.github.com/authorizations</span>
+</pre>
+
+<p>This call creates a token for the authenticated user tied to a special "API"
+OAuth application.</p>
+
+<p>We now support creating tokens for <em>your own OAuth application</em> by passing your
+twenty character <code>client_id</code> and forty character <code>client_secret</code> as found in
+the settings page for your OAuth application.</p>
+
+<pre class="command-line">
+<span class="command">curl -u pengwynn -d '{ \</span>
+<span class="command">                     "scopes": ["user", "gist"], \</span>
+<span class="command">                     "client_id": "abcdeabcdeabcdeabcdeabcde" \</span>
+<span class="command">                     "client_secret": "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde" \</span>
+<span class="command">                    }' \ '</span>
+<span class="command">       https://api.github.com/authorizations</span>
+</pre>
+
+<p>No more implementing the <a href="/v3/oauth/#web-application-flow">web flow</a> just to get a token tied to your
+app's rate limit.</p>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-12-04-List-comments-for-repo/">
+  <h2 class="title">
+<a id="--per-repository-review-and-issue-commentlisting" class="anchor" href="#--per-repository-review-and-issue-commentlisting" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-12-04-List-comments-for-repo/">Per-repository Review and Issue Comment listing</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    December 4, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>You've always been able to grab all the commit comments for an entire
+repository via the API, but to get Issue comments and Pull Request Review
+Comments, you could only fetch the comments for a single Issue or Pull Request.</p>
+
+<p>Today, we're introducing two new methods to grab all Issue Comments and Review
+Comments for a repository.</p>
+
+<pre class="command-line">
+<span class="comment"># Grab all Issue Comments</span>
+<span class="output">curl https://api.github.com/repos/mathiasbynens/dotfiles/issues/comments</span>
+
+<span class="comment"># Grab all Review Comments</span>
+<span class="output">curl https://api.github.com/repos/mathiasbynens/dotfiles/pulls/comments</span>
+</pre>
+
+<p>Check out the docs for sorting and filtering options:</p>
+
+<ul>
+<li><a href="/v3/issues/comments/#list-comments-in-a-repository">Issue comments</a></li>
+<li><a href="/v3/pulls/comments/#list-comments-in-a-repository">Review comments</a></li>
+</ul>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-11-29-gitignore-templates/">
+  <h2 class="title">
+<a id="--gitignore-templates-api" class="anchor" href="#--gitignore-templates-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-11-29-gitignore-templates/">Gitignore Templates API</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    November 29, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/pengwynn.png" alt="Avatar for pengwynn" data-proofer-ignore>
+      <a href="https://github.com/pengwynn" data-proofer-ignore>pengwynn</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We recently <a href="/changes/2012-09-28-auto-init-for-repositories/">made it easy</a> to initialize a repository when you create
+it <a href="/v3/repos/#create">via the API</a>. One of the options you can pass when creating a
+repository is <code>gitignore_template</code>. This value is the name of one of the
+templates from the public <a href="https://github.com/github/gitignore">GitHub .gitignore repository</a>.</p>
+
+<p>The <a href="/v3/gitignore/">Gitignore Templates API</a> makes it easy to list those templates:</p>
+
+<pre class="command-line">
+<span class="command">curl https://api.github.com/gitignore/templates</span>
+
+<span class="output">HTTP/1.1 200 OK</span>
+
+<span class="output">[</span>
+<span class="output">  "Actionscript",</span>
+<span class="output">  "Android",</span>
+<span class="output">  "AppceleratorTitanium",</span>
+<span class="output">  "Autotools",</span>
+<span class="output">  "Bancha",</span>
+<span class="output">  "C",</span>
+<span class="output">  "C++",</span>
+<span class="output">  ...</span>
+</pre>
+
+<p>If you'd like to view the source, you can also fetch a single template.</p>
+
+<pre class="command-line">
+<span class="command">curl -H 'Accept: application/vnd.github.raw' \</span>
+<span class="command">     https://api.github.com/gitignore/templates/Objective-C</span>
+
+<span class="output">HTTP/1.1 200 OK</span>
+
+<span class="comment"># Xcode</span>
+<span class="output">.DS_Store</span>
+<span class="output">build/</span>
+<span class="output">*.pbxuser</span>
+<span class="output">!default.pbxuser</span>
+<span class="output">*.mode1v3</span>
+<span class="output">!default.mode1v3</span>
+<span class="output">*.mode2v3</span>
+<span class="output">!default.mode2v3</span>
+<span class="output">*.perspectivev3</span>
+<span class="output">!default.perspectivev3</span>
+<span class="output">*.xcworkspace</span>
+<span class="output">!default.xcworkspace</span>
+<span class="output">xcuserdata</span>
+<span class="output">profile</span>
+<span class="output">*.moved-aside</span>
+<span class="output">DerivedData</span>
+<span class="output">.idea/</span>
+</pre>
+
+<p></p>
+</div>
+
+<div class="change" id="/changes/2012-11-27-forking-to-organizations/">
+  <h2 class="title">
+<a id="--forking-to-organizations" class="anchor" href="#--forking-to-organizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+  <a href="/changes/2012-11-27-forking-to-organizations/">Forking to Organizations</a>
+</h2>
+
+<div class="meta">
+  <ul>
+  <li class="published">
+    <span class="octicon octicon-calendar"></span>
+    November 27, 2012
+    
+  </li>
+  <li class="who_when">
+    <img height="16" width="16" src="https://github.com/technoweenie.png" alt="Avatar for technoweenie" data-proofer-ignore>
+      <a href="https://github.com/technoweenie" data-proofer-ignore>technoweenie</a>
+  </li>
+</ul>
+</div>
+
+<p></p>
+<p>We made a slight change to the way you fork a repository.  By default, you
+can fork my repository through an HTTP POST to the repository's fork resource.</p>
+
+<pre class="command-line">
+<span class="command">curl -X POST https://api.github.com/repos/technoweenie/faraday/forks</span>
+</pre>
+
+<p>This repository forks to your personal account.  However, there are cases when
+you want to fork to one of your organizations instead.  The previous method
+required a <code>?org</code> query parameter:</p>
+
+<pre class="command-line">
+<span class="command">curl -X POST /repos/technoweenie/faraday/forks?org=mycompany</span>
+</pre>
+
+<p>Query parameters on POST requests are unusual in APIs, and definitely
+inconsistent with the rest of the GitHub API.  You should be able to post a
+JSON body like every other POST endpoint.  Now, you can!  Only, now we're
+calling the field <code>organization</code>.</p>
+
+<pre class="command-line">
+<span class="command">curl /repos/technoweenie/faraday/forks?org=mycompany \</span>
+<span class="command"> -d '{"organization": "mycompany"}'</span>
+</pre>
+
+<p>Don't worry, we are committed to maintaining the legacy behavior until the next
+major change of the GitHub API.</p>
+
+<p></p>
+</div>
+
+<div class="paginate-container">
+  
+
+<div class="pagination">
+  
+  <a href="/changes/12" class="previous_page">Previous</a>
+  
+
+  
+    
+    
+    
+    
+      
+      
+      
+    
+
+    
+      <span class="disabled">…</span>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/11" class="">11</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/12" class="">12</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/13" class="current">13</a>
+    
+
+    
+  
+    
+    
+    
+    
+
+    
+      <a href="/changes/14" class="">14</a>
+    
+
+    
+  
+
+  
+    <a href="/changes/14" class="next_page">Next</a>
+  
+</div>
+
+<p></p>
+</div>
+    </div>
+
+    <div class="sidebar-shell">
+        <h2>Recent Posts</h2>
+<ul class="headlines sidebar-module">
+
+  <li><a href="/changes/2016-07-12-ending-multiple-assignees-preview-period/">Multiple Assignees API is now official<br /><span class="date">July 12, 2016</span></a></li>
+
+  <li><a href="/changes/2016-07-06-github-pages-preiew-api/">Introducing the GitHub Pages preview API<br /><span class="date">July 6, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-27-protected-branches-api-update/">Update to Protected Branches API Preview<br /><span class="date">June 27, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-22-issue-locking-api-is-now-official/">Issue locking and unlocking APIs are now official<br /><span class="date">June 22, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-14-repository-invitations/">API changes for Repository Invitations<br /><span class="date">June 14, 2016</span></a></li>
+
+  <li><a href="/changes/2016-06-07-reactions-api-update/">Reactions API Preview now includes user information<br /><span class="date">June 7, 2016</span></a></li>
+
+  <li><a href="/changes/2016-5-27-multiple-assignees/">API changes for Multiple Issue Assignees<br /><span class="date">May 27, 2016</span></a></li>
+
+  <li><a href="/changes/2016-05-23-timeline-preview-api/">Preview the Timeline API<br /><span class="date">May 23, 2016</span></a></li>
+
+</ul>
+
+
+        <div class="sidebar-module notice"><a class="rss-subscribe" href="/changes.atom">Subscribe to the RSS feed</a></div>
+    </div>
+  </div>
+
+    <div id="footer" >
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2016 GitHub, Inc.</a></li>
+        <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
+        <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
+        <li><a href="https://help.github.com/security/">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+      </ul>
+
+      <span class="footer-cell">
+        <a href="https://github.com" class="mega-octicon octicon-mark-github"></a>
+      </span>
+
+      <ul class="footer-cell">
+        <li><a href="https://status.github.com/">Status</a></li>
+        <li><a href="http://training.github.com/">Training</a></li>
+        <li><a href="http://shop.github.com/">Shop</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+        <li><a href="https://github.com/about">About</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#footer -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-37', 'github.com');
+    ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
