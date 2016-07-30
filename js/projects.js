@@ -1,22 +1,24 @@
 oss_projects = {};
 oss_projects['meetup-link'] = {
-  blog_post: 'http://google.com',
   featured: true,
   position: 1,
-  background: 'paasta_bg.png'
+  background: 'meetup-link.png'
 };
 oss_projects['NorfolkDataSci.github.io'] = {
   blog_post: 'https://norfolkdatasci.github.io/community',
   featured: true,
   position: 2,
-  background: 'norfolk-ds-logo.png'
+  background: 'NorfolkDataSci.github.io.png'
 };
 oss_projects['ideas-brainstorm'] = {
-  blog_post: 'http://google.com',
   featured: true,
   position: 3,
-  background: 'rocketship.png'
+  background: 'ideas-brainstorm.png'
 };
+
+oss_projects['LEMAS-analysis'] = {
+  background: 'LEMAS-analysis.png'
+}
 
 /*
 oss_projects['mrjob'] = {
