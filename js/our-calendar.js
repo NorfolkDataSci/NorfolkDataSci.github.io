@@ -1,5 +1,3 @@
-<script type='text/javascript'>
-
 $(document).ready(function() {
     $('#calendar').fullCalendar({
         googleCalendarApiKey: 'AIzaSyBsN5BeKS0RyzBSlyzyKzmJPr15v8_yBak',
@@ -9,5 +7,3 @@ $(document).ready(function() {
         }
     });
 });
-
-</script>
