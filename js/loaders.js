@@ -39,7 +39,7 @@ function loadRepositoryData(repoData) {
   org.addReposToContainer($('.projects .featured'), org.featuredRepos());
   org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
 
-  $('.project-count').html(org.forkedCount());
+  $('.project-count').html(org.repos.length);
 }
 
 function loadMemberData(members) {

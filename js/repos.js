@@ -69,13 +69,11 @@ Repository.prototype.getContainer = function(index) {
 }
 
 Repository.prototype.featuredImage = function() {
-  if (this.featured()) {
-    return [
-      '<div class="island-item featured-image">',
-        '<img src="/images/', this.background() ,'">',
-      '</div>'
-    ].join('');
-  }
+  return [
+    '<div class="island-item featured-image">',
+      '<img src="/images/', this.background() ,'">',
+    '</div>'
+  ].join('');
 }
 
 Repository.prototype.headerLogo = function() {

@@ -75,7 +75,7 @@ h3 a i {
 }
 
 .project:hover {
-  background: #f5f5f1;
+  background: #f5f5f1 !important;
 }
 
 .project .island-item.featured-image {
@@ -86,6 +86,9 @@ h3 a i {
 .project .island-item.featured-image img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
 }
 
 .project h3 {
