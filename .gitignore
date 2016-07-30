@@ -23,4 +23,4 @@ json-dump
 .Rproj.user
 *.Rproj
 .Rhistory
-
+.RData
