@@ -33,11 +33,11 @@ function loadRepositoryData(repoData) {
     org.repos.push(new Repository(repoDatum));
   });
 
-  $('.wrapper .featured').empty();
-  $('.wrapper .not-featured').empty();
+  $('.projects .featured').empty();
+  $('.projects .not-featured').empty();
 
-  org.addReposToContainer($('.wrapper .featured'), org.featuredRepos());
-  org.addReposToContainer($('.wrapper .not-featured'), org.regularRepos());
+  org.addReposToContainer($('.projects .featured'), org.featuredRepos());
+  org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
 
   $('.project-count').html(org.forkedCount());
 }
