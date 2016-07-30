@@ -35,6 +35,27 @@ h3 a i {
   margin-top: -50px;
 }
 
+.bs-docs-section {
+  margin-bottom: 60px;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.lead {
+    font-size: 21px;
+}
+
+.lead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
 .main-container {
   margin: 0 auto;
   margin-top: 30px;
