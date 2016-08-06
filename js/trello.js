@@ -34,7 +34,7 @@ Board.prototype.getName = function(){
 
 Board.prototype.addCardsToContainer = function(container, cards) {
   cards.forEach(function(card) {
-    container.append(card.getContainer());
+    container.append(card.cardContent());
   });
 }
 
@@ -46,7 +46,6 @@ Board.prototype.toDoCards = function() {
       toDoListId = list.id;
     }
   });
-  console.debug(toDoListId);
   // this.lists - figure out id for 
   this.cards.forEach(function(card) {
     if (card.idList == toDoListId) {
@@ -91,13 +90,7 @@ Board.prototype.doneCards = function() {
 Card = function(card) { 
 	this.id = card.id;
   this.name = card.name;
-  this.desc = cutString(card.desc);
   this.shortUrl = card.shortUrl;
-  this.comments = card.badges.comments;
-}
-
-Card.prototype.getContainer = function() {
-  return this.cardContent();
 }
 
 Card.prototype.cardContent = function() {
@@ -108,7 +101,7 @@ Card.prototype.cardContent = function() {
      '<span class="trello-card-badges">',
        '<span class="trello-card-badge">', 
          '<span class="trello-icon trello-icon-comment"></span>',
-         '<span class="trello-badge-text">', this.comments,'</span>', 
+         '<span class="trello-badge-text">1</span>', 
        '</span>',
      '</span>',
      '<span class="trello-card-members"></span>',
