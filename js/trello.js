@@ -1,8 +1,35 @@
-
-Board = function(name, lists, cards) {
+function cutString(text){    
+    var wordsToCut = 5;
+    var wordsArray = text.split(" ");
+    if(wordsArray.length>wordsToCut){
+        var strShort = "";
+        for(i = 0; i < wordsToCut; i++){
+            strShort += wordsArray[i] + " ";
+        }   
+        return strShort+"&hellip;";
+    }else{
+        return text;
+    }
+ };
+         
+Board = function(name, url, pos, lists, cards) {
   this.name = name;
+  this.url = url;
+  this.pos = pos;
   this.lists = lists || [];
   this.cards = cards || [];
+}
+
+Board.prototype.getName = function(name, url){
+  return [
+    '<a href="', url, '" target="_blank">',
+      '<span>', name, '</span>',
+    '</a>'
+  ].join('');
+}
+
+Board.prototype.changeBoardName = function(name, url, container) {
+  container.append(board.getName(name, url));
 }
 
 Board.prototype.addCardsToContainer = function(container, cards) {
@@ -64,31 +91,28 @@ Board.prototype.doneCards = function() {
 Card = function(card) { 
 	this.id = card.id;
   this.name = card.name;
-  this.desc = card.desc;
+  this.desc = cutString(card.desc);
   this.shortUrl = card.shortUrl;
-  this.idList = card.idList;
+  this.comments = card.badges.comments;
 }
 
 Card.prototype.getContainer = function(index) {
-  return [
-    '<div class="roadmap card-light card-stack card last-in-row">',
-      this.cardContent(),
-    '</div>'
-  ].join('');
+  return this.cardContent();
 }
 
 Card.prototype.cardContent = function() {
   return [
-    '<div class="card-item">',
-      '<h3>',
-        '<a href="', this.shortUrl, '" target="_blank">', this.name, '</a>',
-      '</h3>',
-      '<div class="repo-info">',
-        '<span class="language">', this.id, '</span>',
-        '<span class="language">', this.idList, '</span>',
-      '</div>',
-      '<p>', this.desc, '</p>',
-    '</div>'
+   '<a href="', this.shortUrl, '" class="trello-card trello-clearfix" target="_blank">',
+     '<span class="trello-card-labels trello-clearfix"></span>', 
+     '<span href="', this.shortUrl, '" class="trello-card-title">', this.name, '</span>',
+     '<span class="trello-card-badges">',
+       '<span class="trello-card-badge">', 
+         '<span class="trello-icon trello-icon-comment"></span>',
+         '<span class="trello-badge-text">', this.comments,'</span>', 
+       '</span>',
+     '</span>',
+     '<span class="trello-card-members"></span>',
+    '</a>'
   ].join('');
 }
 
@@ -98,8 +122,8 @@ List = function(list) {
   this.featured = true;
 }
 
-function loadCardData(listData, cardData) {
-  var board = new Board('norfolkdatasci');
+function loadCardData(name, url, pos, listData, cardData) {
+  var board = new Board(name, url, pos);
   board.lists = [];
   board.cards = [];
   listData.forEach(function(listDatum) {
@@ -109,35 +133,41 @@ function loadCardData(listData, cardData) {
     board.cards.push(new Card(cardDatum));
   });
 	
-  $('.roadmaps .to-do').empty();
-  $('.roadmaps .in-progress').empty();
-  $('.roadmaps .done').empty();
+	$('.trello-board' + pos + ' .trello-board-header').empty();
+  $('.trello-board' + pos + ' .trello-list-cards .to-do').empty();
+  $('.trello-board' + pos + ' .trello-list-cards .in-progress').empty();
+  $('.trello-board' + pos + ' .trello-list-cards .done').empty();
 
-  board.addCardsToContainer($('.roadmaps .to-do'), board.toDoCards());
-  board.addCardsToContainer($('.roadmaps .in-progress'), board.inProgressCards());
-  board.addCardsToContainer($('.roadmaps .done'), board.doneCards());
+  board.changeBoardName($('.trello-board' + pos + ' .trello-board-header'), name, url);
+  board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .to-do'), board.toDoCards());
+  board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .in-progress'), board.inProgressCards());
+  board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .done'), board.doneCards());
 }
 
-function getAllData(url, callback) {
+function getAllData(url, pos, callback) {
+  var this_board_name = '';
+  var this_board_url = '';
+  var this_board_pos = pos;
   var lists = [];
   var cards = [];
   $.getJSON(url).success(function(responseObj) {
+    this_board_name = responseObj.name;
+    this_board_url = responseObj.url;
     responseObj.lists.forEach(function(resultDatum){
       lists.push(resultDatum);
     });
     responseObj.cards.forEach(function(resultDatum){
       cards.push(resultDatum);
     });
-    alert(lists.length);
-    alert(cards.length);
-  	callback(lists, cards);
+  	callback(this_board_name, this_board_url, this_board_pos, lists, cards);
   });
 }
 
-function getTrelloLists(callback) {
-  getAllData('https://trello.com/b/mF8YgX8R.json', callback);
+function getTrelloLists(url, pos, callback) {
+  getAllData(url, pos, callback);
 }
 
 $(document).ready(function() {
-  getTrelloLists(loadCardData);
+  getTrelloLists('https://trello.com/b/mF8YgX8R.json', 1, loadCardData);
+  getTrelloLists('https://trello.com/b/mF8YgX8R.json', 2, loadCardData);
 });
