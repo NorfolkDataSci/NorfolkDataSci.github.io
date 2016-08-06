@@ -29,16 +29,12 @@ Board.prototype.getName = function(){
   return [
     '<div style="font-size:1.3em;"><u><b>Project</b>: ', this.name, '</u></div>',
     '<br>',
-    '<img class="valign" src="../images/trello-logo.png" width="18px" height="18px">'
-    '<a class="valign" href="', this.url, '" target="_blank">View Trello Board</a>'
-    '<img class="valign" src="../images/github-logo.png" width="18px" height="18px" style="margin-left:20px;">'
+    '<img class="valign" src="../images/trello-logo.png" width="18px" height="18px">',
+    '<a class="valign" href="', this.url, '" target="_blank">View Trello Board</a>',
+    '<img class="valign" src="../images/github-logo.png" width="18px" height="18px" style="margin-left:20px;">',
     '<a class="valign" href="', this.github_url, '" target="_blank">View on GitHub</a>'
   ].join('');
 }
-
-'<img class="valign" src="https://zapier.cachefly.net/storage/services/4f24d34956c5686aadb79bd84755fbc0.png" width="25px" height="25px">'
-'<a class="valign" href="https://google.com" target="_blank">View Trello Board</a>'
-
 
 Board.prototype.addCardsToContainer = function(container, cards) {
   cards.forEach(function(card) {
