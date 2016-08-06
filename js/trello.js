@@ -33,8 +33,8 @@ Board.prototype.getName = function(){
 }
 
 Board.prototype.addCardsToContainer = function(container, cards) {
-  cards.forEach(function(card, i) {
-    container.append(card.getContainer(i+1));
+  cards.forEach(function(card) {
+    container.append(card.getContainer());
   });
 }
 
@@ -96,7 +96,7 @@ Card = function(card) {
   this.comments = card.badges.comments;
 }
 
-Card.prototype.getContainer = function(index) {
+Card.prototype.getContainer = function() {
   return this.cardContent();
 }
 

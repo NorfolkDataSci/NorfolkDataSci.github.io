@@ -62,6 +62,11 @@ h3 a i {
   width: 960px;
 }
 
+.to-do, .in-progess, .done {
+  width: 33%;
+  float: left;
+}
+
 .layout-block .column-alpha {
   margin-left: 0;
   padding: 0;
@@ -80,9 +85,7 @@ h3 a i {
   font-size: 12px;
   margin-bottom: 24px;
   margin-right: 20px;
-
   position: relative;
-
   height: 200px;
   width: 218px;
 }
