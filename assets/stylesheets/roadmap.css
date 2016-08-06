@@ -168,9 +168,9 @@
     float: left;
     font-size: 11px;
     line-height: 16px;
+    margin-left: 5px;
 }
 .trello-embed .trello-card .trello-card-badges .trello-card-badge .trello-icon {
-    color: #a9a9a9;
     display: inline-block;
     float: left;
     font-family: "Trellicons Regular";
