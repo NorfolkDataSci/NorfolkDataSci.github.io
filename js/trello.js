@@ -95,6 +95,7 @@ Card = function(card) {
 	this.idList = card.idList;
   this.name = card.name;
   this.shortUrl = card.shortUrl;
+  this.comments = card.badges.comments;
 }
 
 Card.prototype.cardContent = function() {
@@ -105,7 +106,7 @@ Card.prototype.cardContent = function() {
      '<span class="trello-card-badges">',
        '<span class="trello-card-badge">', 
          '<span class="trello-icon trello-icon-comment"></span>',
-         '<span class="trello-badge-text">1</span>', 
+         '<span class="trello-badge-text">', this.comments, '</span>', 
        '</span>',
      '</span>',
      '<span class="trello-card-members"></span>',
