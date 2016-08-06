@@ -20,16 +20,16 @@ Board = function(name, url, pos, lists, cards) {
   this.cards = cards || [];
 }
 
+changeBoardName = function(container, board) {
+  container.append(board.getName());
+}
+
 Board.prototype.getName = function(){
   return [
     '<a href="', board.url, '" target="_blank">',
       '<span>', board.name, '</span>',
     '</a>'
   ].join('');
-}
-
-Board.prototype.changeBoardName = function(container) {
-  container.append(board.getName());
 }
 
 Board.prototype.addCardsToContainer = function(container, cards) {
@@ -138,7 +138,7 @@ function loadCardData(name, url, pos, listData, cardData) {
   $('.trello-board' + pos + ' .trello-list-cards .in-progress').empty();
   $('.trello-board' + pos + ' .trello-list-cards .done').empty();
 
-  board.changeBoardName($('.trello-board' + pos + ' .trello-board-header'));
+  changeBoardName($('.trello-board' + pos + ' .trello-board-header'), board);
   board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .to-do'), board.toDoCards());
   board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .in-progress'), board.inProgressCards());
   board.addCardsToContainer($('.trello-board' + pos + ' .trello-list-cards .done'), board.doneCards());
