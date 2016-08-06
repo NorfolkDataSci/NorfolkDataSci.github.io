@@ -92,6 +92,7 @@ Board.prototype.doneCards = function() {
 
 Card = function(card) { 
 	this.id = card.id;
+	this.idList = card.idList;
   this.name = card.name;
   this.shortUrl = card.shortUrl;
 }
@@ -130,9 +131,9 @@ function loadCardData(name, url, pos, listData, cardData) {
   });
 	
 	$('.trello-board' + pos + ' .trello-board-header').empty();
-  $('.trello-board' + pos + ' .trello-list-cards .to-do').empty();
-  $('.trello-board' + pos + ' .trello-list-cards .in-progress').empty();
-  $('.trello-board' + pos + ' .trello-list-cards .done').empty();
+  $('#todolist' + pos).empty();
+  $('#inprogresslist' + pos).empty();
+  $('#donelist' + pos).empty();
 
   changeBoardName($('.trello-board' + pos + ' .trello-board-header'), board);
   board.addCardsToContainer($('#todolist' + pos), board.toDoCards());
