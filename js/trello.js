@@ -28,11 +28,10 @@ changeBoardName = function(container, board) {
 Board.prototype.getName = function(){
   return [
     '<div style="font-size:1.3em;"><u><b>Project</b>: ', this.name, '</u></div>',
-    '<br>',
     '<img class="valign" src="../images/trello-logo.png" width="18px" height="18px">',
-    '<a class="valign" href="', this.url, '" target="_blank">View Trello Board</a>',
+    '<a class="valign" href="', this.url, '" target="_blank">   View Trello Board</a>',
     '<img class="valign" src="../images/github-logo.png" width="18px" height="18px" style="margin-left:20px;">',
-    '<a class="valign" href="', this.github_url, '" target="_blank">View on GitHub</a>'
+    '<a class="valign" href="', this.github_url, '" target="_blank">   View on GitHub</a>'
   ].join('');
 }
 
