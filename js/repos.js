@@ -42,10 +42,10 @@ Repository.prototype.background = function() {
 }
 
 Repository.prototype.classes = function() {
-  if (this.deprecated()) {
-    return 'deprecated-project';
-  } else {
+  if (this.featured()) {
     return 'featured-project';
+  } else if (this.deprecated()) {
+    return 'deprecated-project';
   }
 }
 

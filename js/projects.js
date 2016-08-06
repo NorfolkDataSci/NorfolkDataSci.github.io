@@ -1,9 +1,5 @@
 oss_projects = {};
-oss_projects['meetup-link'] = {
-  featured: true,
-  position: 3,
-  background: 'meetup-link.png'
-};
+
 oss_projects['NorfolkDataSci.github.io'] = {
   featured: true,
   position: 1,
@@ -11,8 +7,13 @@ oss_projects['NorfolkDataSci.github.io'] = {
 };
 oss_projects['ideas-brainstorm'] = {
   featured: true,
-  position: 3,
+  position: 2,
   background: 'ideas-brainstorm.png'
+};
+oss_projects['meetup-link'] = {
+  featured: true,
+  position: 3,
+  background: 'meetup-link.png'
 };
 
 /*
