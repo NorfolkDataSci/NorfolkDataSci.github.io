@@ -70,11 +70,8 @@ Card = function(card) {
 }
 
 Card.prototype.getContainer = function(index) {
-  var last = '';
-  if (index % 4 == 0) { last = 'last-in-row' }
-
   return [
-    '<div class="project island-light island-stack island ', this.id, ' ', last, '">',
+    '<div class="roadmap card-light card-stack card last-in-row">',
       this.cardContent(),
     '</div>'
   ].join('');
@@ -82,7 +79,7 @@ Card.prototype.getContainer = function(index) {
 
 Card.prototype.cardContent = function() {
   return [
-    '<div class="island-item">',
+    '<div class="card-item">',
       '<h3>',
         '<a href="', this.shortUrl, '" target="_blank">', this.name, '</a>',
       '</h3>',
@@ -112,13 +109,13 @@ function loadCardData(listData, cardData) {
     board.cards.push(new Card(cardDatum));
   });
 	
-  $('.projects .to-do').empty();
-  $('.projects .in-progress').empty();
-  $('.projects .done').empty();
+  $('.roadmaps .to-do').empty();
+  $('.roadmaps .in-progress').empty();
+  $('.roadmaps .done').empty();
 
-  board.addCardsToContainer($('.projects .to-do'), board.toDoCards());
-  board.addCardsToContainer($('.projects .in-progress'), board.inProgressCards());
-  board.addCardsToContainer($('.projects .done'), board.doneCards());
+  board.addCardsToContainer($('.roadmaps .to-do'), board.toDoCards());
+  board.addCardsToContainer($('.roadmaps .in-progress'), board.inProgressCards());
+  board.addCardsToContainer($('.roadmaps .done'), board.doneCards());
 }
 
 function getAllData(url, callback) {
