@@ -26,8 +26,8 @@ changeBoardName = function(container, board) {
 
 Board.prototype.getName = function(){
   return [
-    '<a href="', board.url, '" target="_blank">',
-      '<span>', board.name, '</span>',
+    '<a href="', this.url, '" target="_blank">',
+      '<span>', this.name, '</span>',
     '</a>'
   ].join('');
 }
