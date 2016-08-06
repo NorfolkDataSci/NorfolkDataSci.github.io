@@ -72,7 +72,7 @@ Repository.prototype.featuredImage = function() {
   if (this.featured()) {
     return [
       '<div class="island-item featured-image">',
-        '<img src="/img/', this.background() ,'">',
+        '<img src="/images/', this.background() ,'">',
       '</div>'
     ].join('');
   }
