@@ -5,7 +5,6 @@ p {
 
 h3 a {
   color: #c41200;
-
   /* Some roadmap names are too long :( */
   overflow: hidden;
   display: inline-block;
@@ -25,9 +24,6 @@ h3 a i {
 }
 
 .roadmaps h2 {
-  clear: both;
-  padding-top: 0px;
-  padding-bottom: 6px;
 }
 
 .roadmap.card {
