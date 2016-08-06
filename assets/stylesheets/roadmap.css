@@ -184,6 +184,7 @@
     text-decoration: none;
     width: 18px;
 }
+
 .trello-embed .trello-card .trello-card-badges .trello-card-badge .trello-icon-comment::before {
     content: "";
 }
@@ -242,4 +243,7 @@
 }
 .trello-embed .trello-no-scroll .trello-lists .trello-list-cards {
     overflow-y: hidden;
+}
+.trello-icon-comment {
+   background-image: url("../images/trello-icon-comment.png");
 }
