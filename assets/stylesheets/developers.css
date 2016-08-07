@@ -1,0 +1,86 @@
+
+/**
+ * Default island
+ */
+.island {
+  padding: 11px;
+  background: #f5f5f1;
+  border: 1px solid #ccccc8;
+  border-radius: 4px; }
+  .island.island-light {
+    background: none;
+    border-color: #e5e5e1; }
+  .island.island-blue {
+    border-color: #cbd6e7;
+    background: #f0f3f8; }
+  .island.island-city-scape {
+    background-image: image-url("yelp_styleguide/assets/img/structural/city-scape-bg-big.png");
+    background-repeat: no-repeat;
+    background-position: center bottom; }
+
+/**
+ * A set of stacked islands
+ */
+.island-stack {
+  padding: 0; }
+  .island-stack > .island-item {
+    padding: 14px 11px 11px;
+    border-top: 1px solid #ccccc8; }
+    .island-stack > .island-item:first-child {
+      border-top: none; }
+  .island-stack.island-light > .island-item {
+    border-color: #e5e5e1; }
+
+/**
+ * Add media island
+ *
+ * This component is used as a call to action for users to upload
+ * media (photos/videos). It consists of a button and a piece of text.
+ */
+.add-media-island {
+  -webkit-box-shadow: inset 0 5px 8px -1px rgba(0, 0, 0, 0.1), 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 5px 8px -1px rgba(0, 0, 0, 0.1), 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+  min-height: 200px; }
+
+.add-media-island-content {
+  text-align: center;
+  padding-top: 60px; }
+
+.add-media-island-text {
+  margin: 12px auto 0;
+  font-size: 12px;
+  line-height: 1.5em;
+  width: 85%; }
+  .add-media-island-full .add-media-island-text {
+    margin: 18px auto 0;
+    font-size: 14px;
+    line-height: 1.28571em;
+    width: 65%; 
+  }
+
+
+.top-shelf {
+  width: 100%;
+  min-width: 1020px;
+  position: relative;
+  padding-top: 15px; }
+  .top-shelf h1 {
+    padding-top: 0;
+    font-size: 36px;
+    line-height: 1.16667em; }
+  .top-shelf .intro {
+    font-size: 16px;
+    line-height: 1.3125em; }
+    .top-shelf .intro h1 + p {
+      margin-top: 18px; }
+
+.top-shelf-grey {
+  background: #f5f5f1;
+  border-bottom: 1px solid #ccccc8; 
+}
+  
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+1
