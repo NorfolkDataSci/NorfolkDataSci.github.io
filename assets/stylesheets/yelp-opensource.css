@@ -62,11 +62,6 @@ h3 a i {
   width: 960px;
 }
 
-.to-do, .in-progess, .done {
-  width: 33%;
-  float: left;
-}
-
 .layout-block .column-alpha {
   margin-left: 0;
   padding: 0;
@@ -174,7 +169,6 @@ h3 a i {
 .footer-language, .footer-country {
   display: block;
 }
-
 
 /* Octicon changes */
 .octicon.octicon-star { font-size: 14px; }
