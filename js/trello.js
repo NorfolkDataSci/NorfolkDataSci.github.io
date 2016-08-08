@@ -166,6 +166,6 @@ function getTrelloLists(url, pos, callback) {
 }
 
 $(document).ready(function() {
-  getTrelloLists('https://trello.com/b/mF8YgX8R.json', 1, loadCardData);
+  getTrelloLists('https://trello.com/b/GtFYXDgy.json', 1, loadCardData);
   getTrelloLists('https://trello.com/b/mF8YgX8R.json', 2, loadCardData);
 });
