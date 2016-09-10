@@ -13,10 +13,6 @@
   .island.island-blue {
     border-color: #cbd6e7;
     background: #f0f3f8; }
-  .island.island-city-scape {
-    background-image: image-url("yelp_styleguide/assets/img/structural/city-scape-bg-big.png");
-    background-repeat: no-repeat;
-    background-position: center bottom; }
 
 /**
  * A set of stacked islands
