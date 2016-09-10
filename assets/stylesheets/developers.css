@@ -75,11 +75,10 @@
 }
 
 .top-shelf {
-    /* width: 100%; */
-    position: relative;
-    padding-top: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
+  position: relative;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
   
 .container {
