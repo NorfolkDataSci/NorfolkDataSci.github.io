@@ -40,13 +40,13 @@ h3 a i {
 .top-shelf-grey .container {
   background: url(/images/illustration.png) no-repeat right bottom;
   height: 240px;
-  width: 100%;
+  width: 50%;
   margin-top: -50px;
 }
 
 .top-shelf-grey .container2 {
   height: 240px;
-  width: 100%;
+  width: 50%;
   margin-top: -50px;
 }
 
@@ -74,7 +74,7 @@ h3 a i {
 .main-container {
   margin: 0 auto;
   margin-top: 30px;
-  width: 960px;
+  width: 50%;
 }
 
 .layout-block .column-alpha {
