@@ -40,13 +40,13 @@ h3 a i {
 .top-shelf-grey .container {
   background: url(/images/illustration.png) no-repeat right bottom;
   height: 240px;
-  width: 960px;
+  width: 100%;
   margin-top: -50px;
 }
 
 .top-shelf-grey .container2 {
   height: 240px;
-  width: 960px;
+  width: 100%;
   margin-top: -50px;
 }
 
