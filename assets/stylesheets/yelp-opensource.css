@@ -74,6 +74,8 @@ h3 a i {
 
 .main-container {
   margin: 0 auto;
+  padding-left: 25px;
+  padding-right: 25px;
   margin-top: 30px;
   max-width: 960px;
 }
