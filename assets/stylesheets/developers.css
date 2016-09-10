@@ -56,22 +56,37 @@
 
 
 .top-shelf {
-  width: 100%;
-  position: relative;
-  padding-top: 15px; }
-  .top-shelf h1 {
-    padding-top: 0;
-    font-size: 1.5em;
-    line-height: 1.16667em; }
-  .top-shelf .intro {
-    font-size: 1em;
-    line-height: 1.3125em; }
-    .top-shelf .intro h1 + p {
-      margin-top: 18px; }
+  padding-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.top-shelf h1 {
+  padding-top: 0;
+  font-size: 1.5em;
+  line-height: 1.16667em; 
+}
+
+.top-shelf .intro {
+  font-size: 1em;
+  line-height: 1.3125em; 
+}
+
+.top-shelf .intro h1 + p {
+  margin-top: 18px; 
+}
 
 .top-shelf-grey {
   background: #f5f5f1;
   border-bottom: 1px solid #ccccc8; 
+}
+
+.top-shelf {
+    /* width: 100%; */
+    position: relative;
+    padding-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
   
 .container {
